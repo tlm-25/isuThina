@@ -18,8 +18,8 @@ export default function Layout (props) {
         
         <header>
             <div>
-                <h1 className="text-gradient">CAFFIEND</h1>
-                <p> For Coffee Insatiates</p>
+                <h1 className="text-gradient">IsuThina</h1>
+                <p> Zim to the world and back 🌎</p>
             </div>
             {globalUser ? (
                 

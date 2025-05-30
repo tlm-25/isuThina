@@ -16,31 +16,39 @@ export default function Layout (props) {
 
     const header = (
         
-        <header>
+        <nav >
             <div>
-                <h1 className="text-gradient">IsuThina</h1>
-                <p> Zim to the world and back 🌎</p>
+                <img className="isuThina-logo" src="../IsuThina_logo.png" alt="isuThina logo"></img>
+                <p className="subheading"> Zim to the world and back 🌎</p>
+                
+                
             </div>
+            
             {globalUser ? (
                 
                 <button onClick={logout}>
                     <p>Logout</p>
-                    <i className="fa-solid fa-mug-hot"></i>
 
                 </button>) :
             
                 <button onClick={()=>{setShowModal(true)}}>
-                    <p>Sign up free</p>
-                    <i className="fa-solid fa-mug-hot"></i>
-
+                    <p>Sign up / Login</p>
+                    
                 </button> }
         
-        </header>
+        </nav>
     )
+
+    const subHeader = (
+        <div className="mission-statement">
+                <p className="subheading"> Connecting Zimbabweans worldwide through culture, community and commerce</p>
+            </div>
+    )
+
 
     const footer = (
         <footer>
-            <p><span className="text-gradient">Caffiend</span> was made by <a target="_blank" href="https://www.smoljames.com">Smoljames</a> <br />using the <a href="https://www.fantacss.smoljames.com" target="_blank">FantaCSS</a> design library.<br />Check out the project on <a target="_black" href="https://www.github.com/jamezmca/reactjs-full-course">GitHub</a>!</p>
+            <p><span className="text-gradient">IsuThina Ltd</span> was made by <a target="_blank" href="https://www.smoljames.com">Arnold Gorah and Takudzwa Mutsago</a> <br />using the <a href="https://www.fantacss.smoljames.com" target="_blank">FantaCSS</a> design library.<br />Check out the project on <a target="_black" href="https://www.github.com/jamezmca/reactjs-full-course">GitHub</a>!</p>
 
         </footer>
     )
@@ -50,6 +58,8 @@ export default function Layout (props) {
             <Authentication handleCloseModal ={handleCloseModal}/>
         </Modal>)}
         {header}
+        
+        {subHeader}
         <main>
             {children}
         </main>

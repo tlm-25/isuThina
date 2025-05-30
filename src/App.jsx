@@ -2,12 +2,11 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import Layout from './components/Layout.jsx'
-import CoffeeForm from './components/CoffeeForm.jsx'
+import WordsOfDay from './components/WordsOfDay.jsx'
 import Hero from './components/Hero.jsx'
 import Stats from './components/Stats.jsx'
 import History from './components/History.jsx'
 import { useAuth } from './context/AuthContext.jsx'
-import { coffeeConsumptionHistory } from './utils/index.js'
 function App() {
   //check if user authenticated 
   const {globalUser, isLoading, globalData } = useAuth()
@@ -34,7 +33,7 @@ function App() {
 
     <Layout>
       <Hero />
-      <CoffeeForm isAuthenticated={isAuthenticated}/>
+      <WordsOfDay isAuthenticated={isAuthenticated}/>
       {(isLoading && isAuthenticated)&&(
 
         <p>Loading data...</p>

@@ -19,90 +19,39 @@ export const statusLevels = {
     },
 }
 
-export const coffeeConsumptionHistory = {
-    "1727579064032": { "name": "Americano", "cost": 5.52 },
-    "1727629263026": { "name": "Rockstar Energy (16oz)", "cost": 6.78 },
-    "1727571485301": { "name": "Macchiato", "cost": 6.93 },
-    "1727585485245": { "name": "Instant Coffee (1 tsp)", "cost": 4.90 },
-    "1727614392214": { "name": "Irish Coffee", "cost": 4.88 },
-    "1727642088808": { "name": "Flat White", "cost": 5.04 },
-    "1727600684481": { "name": "Latte", "cost": 3.99 },
-    "1727615806680": { "name": "Drip Coffee (12oz)", "cost": 3.59 },
-    "1727609623836": { "name": "Bang Energy (16oz)", "cost": 3.43 },
-    "1727647449961": { "name": "Monster Java (15oz)", "cost": 4.44 },
-    "1727595771504": { "name": "Red Eye", "cost": 3.45 },
-    "1727586709242": { "name": "5-hour Energy (2oz)", "cost": 5.60 },
-    "1727592250322": { "name": "Cortado", "cost": 4.48 },
-    "1727630731059": { "name": "NOS Energy Drink (16oz)", "cost": 3.71 },
-    "1727584588314": { "name": "Drip Coffee (12oz)", "cost": 5.96 },
-    "1727630390005": { "name": "Celsius Energy Drink (12oz)", "cost": 3.23 },
-    "1727595715018": { "name": "Matcha Latte", "cost": 4.49 },
-    "1727605577918": { "name": "AMP Energy Drink (16oz)", "cost": 6.29 },
-    "1727565390441": { "name": "Vietnamese Coffee", "cost": 3.38 },
-    "1727641229973": { "name": "Flat White", "cost": 5.42 },
-    "1727610658037": { "name": "Black Coffee (8oz)", "cost": 3.46 },
-    "1727620751667": { "name": "Bang Energy (16oz)", "cost": 6.39 },
-    "1727597163157": { "name": "Monster Energy (16oz)", "cost": 6.81 },
-    "1727590586957": { "name": "Iced Coffee (8oz)", "cost": 3.76 },
-    "1727610760698": { "name": "Monster Java (15oz)", "cost": 4.41 },
-    "1727601688000": { "name": "Nitro Cold Brew (12oz)", "cost": 4.59 },
-    "1727602354621": { "name": "Turkish Coffee", "cost": 3.96 },
-    "1727599341790": { "name": "Double Espresso", "cost": 5.89 },
-    "1727566519925": { "name": "Flat White", "cost": 3.87 },
-    "1727554338958": { "name": "Espresso", "cost": 3.51 },
-    "1727623439992": { "name": "Red Bull (8.4oz)", "cost": 5.21 },
-    "1727569314281": { "name": "AMP Energy Drink (16oz)", "cost": 5.58 },
-    "1727577846796": { "name": "Starbucks Doubleshot (6.5oz)", "cost": 6.51 },
-    "1727651270793": { "name": "Drip Coffee (12oz)", "cost": 5.49 },
-    "1727571590403": { "name": "Red Eye", "cost": 3.66 },
-    "1727575199865": { "name": "Reign Energy Drink (16oz)", "cost": 6.94 },
-    "1727613114673": { "name": "Vietnamese Coffee", "cost": 4.08 },
-    "1727553981855": { "name": "Cold Brew (12oz)", "cost": 4.87 },
-    "1727628992138": { "name": "Zipfizz (1 tube)", "cost": 6.58 },
-    "1727626471677": { "name": "Reign Energy Drink (16oz)", "cost": 3.24 },
-    "1727618530023": { "name": "Zipfizz (1 tube)", "cost": 6.99 },
-    "1727616747401": { "name": "Turkish Coffee", "cost": 5.38 },
-    "1727635847332": { "name": "Black Coffee (8oz)", "cost": 6.11 }
-}
 
-export const coffeeOptions = [
-    { "name": "Espresso", "caffeine": 63 },
-    { "name": "Double Espresso", "caffeine": 126 },
-    { "name": "Americano", "caffeine": 96 },
-    { "name": "Cappuccino", "caffeine": 80 },
-    { "name": "Latte", "caffeine": 80 },
-    { "name": "Mocha", "caffeine": 90 },
-    { "name": "Macchiato", "caffeine": 85 },
-    { "name": "Flat White", "caffeine": 130 },
-    { "name": "Cortado", "caffeine": 85 },
-    { "name": "Red Eye", "caffeine": 159 },
-    { "name": "Black Coffee (8oz)", "caffeine": 95 },
-    { "name": "Iced Coffee (8oz)", "caffeine": 90 },
-    { "name": "Cold Brew (12oz)", "caffeine": 155 },
-    { "name": "Nitro Cold Brew (12oz)", "caffeine": 215 },
-    { "name": "Drip Coffee (12oz)", "caffeine": 120 },
-    { "name": "Frappuccino", "caffeine": 95 },
-    { "name": "Turkish Coffee", "caffeine": 160 },
-    { "name": "Irish Coffee", "caffeine": 70 },
-    { "name": "Vietnamese Coffee", "caffeine": 100 },
-    { "name": "Affogato", "caffeine": 65 },
-    { "name": "Instant Coffee (1 tsp)", "caffeine": 30 },
-    { "name": "Decaf Coffee", "caffeine": 2 },
-    { "name": "Chai Latte", "caffeine": 40 },
-    { "name": "Matcha Latte", "caffeine": 70 },
-    { "name": "Monster Energy (16oz)", "caffeine": 160 },
-    { "name": "Red Bull (8.4oz)", "caffeine": 80 },
-    { "name": "Rockstar Energy (16oz)", "caffeine": 160 },
-    { "name": "Bang Energy (16oz)", "caffeine": 300 },
-    { "name": "Celsius Energy Drink (12oz)", "caffeine": 200 },
-    { "name": "5-hour Energy (2oz)", "caffeine": 200 },
-    { "name": "NOS Energy Drink (16oz)", "caffeine": 160 },
-    { "name": "Reign Energy Drink (16oz)", "caffeine": 300 },
-    { "name": "Starbucks Doubleshot (6.5oz)", "caffeine": 135 },
-    { "name": "Monster Java (15oz)", "caffeine": 188 },
-    { "name": "AMP Energy Drink (16oz)", "caffeine": 142 },
-    { "name": "Zipfizz (1 tube)", "caffeine": 100 }
+export const wordDictionary = [
+  { "ChiShona": "Taura", "English": "Speak", "Language": "ChiShona" },
+  { "ChiShona": "Tamba", "English": "Play/Dance", "Language": "ChiShona" },
+  { "ChiShona": "Ita", "English": "Do", "Language": "ChiShona" },
+  { "ChiShona": "Budirira", "English": "Succeed", "Language": "ChiShona" },
+  { "ChiShona": "Tanga", "English": "Start/Begin", "Language": "ChiShona" },
+  { "ChiShona": "Imbwa", "English": "Dog", "Language": "ChiShona" },
+  { "ChiShona": "Famba", "English": "Walk/Travel", "Language": "ChiShona" },
+  { "ChiShona": "Buda", "English": "Leave/Exit/Come out", "Language": "ChiShona" },
+  { "ChiShona": "Pedza", "English": "Finish (Finish doing something)", "Language": "ChiShona" },
+  { "ChiShona": "Enda", "English": "Go", "Language": "ChiShona" },
+  { "ChiShona": "Simbisa", "English": "Strengthen", "Language": "ChiShona" },
+
+
+  { "IsiNdebele": "Khuluma", "English": "Speak", "Language": "IsiNdebele" },
+  { "IsiNdebele": "Funda", "English": "Learn/Read", "Language": "IsiNdebele" },
+  { "IsiNdebele": "Qala", "English": "Start", "Language": "IsiNdebele" },
+  { "IsiNdebele": "Qinisa", "English": "Strengthen", "Language": "IsiNdebele" },
+  { "IsiNdebele": "Hamba", "English": "Walk/Travel/Leave", "Language": "IsiNdebele" },
+  { "IsiNdebele": "Enza", "English": "Do/Make", "Language": "IsiNdebele" },
+  { "IsiNdebele": "Cabanga", "English": "Think", "Language": "IsiNdebele" },
+  { "IsiNdebele": "Faka", "English": "Put", "Language": "IsiNdebele" },
+  { "IsiNdebele": "Giqa", "English": "Roll along", "Language": "IsiNdebele" },
+  { "IsiNdebele": "Gwaza", "English": "Stab", "Language": "IsiNdebele" },
+  { "IsiNdebele": "Inja", "English": "Dog", "Language": "IsiNdebele" },
+
+  { "IsiXhosa": "Theta", "English": "Speak", "Language": "IsiXhosa" }
+  
 ]
+
+
+export const languages =["ChiShona","IsiNdebele","IsiXhosa"]
 
 const halfLifeHours = 5
 
@@ -131,7 +80,7 @@ export function calculateCurrentCaffeineLevel(historyData) {
 
 // Helper function to get caffeine amount based on the coffee name
 export function getCaffeineAmount(coffeeName) {
-    const coffee = coffeeOptions.find(c => c.name === coffeeName)
+    const coffee = ShonaWords.find(c => c.name === coffeeName)
     return coffee ? coffee.caffeine : 0
 }
 

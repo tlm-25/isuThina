@@ -64,7 +64,7 @@
 
 }
 
-.toggle-button {
+.hamburger-menu-button {
   position: absolute;
   top: .75rem;
   right:1rem;
@@ -73,30 +73,70 @@
   justify-content: space-between;
   width: 30px;
   height: 30px;
-  gap:0.5rem
+ 
 
 }
 
-.toggle-button .bar{
-  height: 3px;
+
+
+@media(max-width:900px){
+  .hamburger-menu-button {
+    display: flex;
+  }
+
+  .hamburger-menu-button .bar{
+  height: 5px;
   width:100%;
   background-color: white;
-  border-radius: 10px;
+  border-radius: 25px;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  top: 50%;
+  left: 50%;
+  transition: .3s ease;
+
   
 
 }
 
-@media(max-width:900px){
-  .toggle-button {
-    display: flex;
+  .hamburger-menu-button span:nth-child(1){
+    top: 25%;
+
+
+  }
+  .hamburger-menu-button span:nth-child(3){
+    top: 75%;
+  }
+
+
+  .hamburger-menu-button.clicked span:nth-child(1){
+    top: 50%;
+    transform: translate(-50%,-50%) rotate(45deg);
+    
+    
+    
+
+  }
+
+  .hamburger-menu-button.clicked span:nth-child(2){
+    
+    opacity: 0;
+    
+  }
+
+  .hamburger-menu-button.clicked span:nth-child(3){
+    top: 50%;
+    transform: translate(-50%,-50%) rotate(-45deg);
   }
 
   .navbar-links{
-    display: none;
+    
+    max-height: 0;
     opacity: 0;
-    transition: opacity 2s ease;
+    transition: max-height 1s ease, opacity 1s ease;
     width: 100%;
-    border-top: 10px solid #fff;
+    border-top: 4px solid #fff;
+    transition: .3s ease;
 
   }
 
@@ -126,11 +166,14 @@
 
 
   .navbar-links.active {
-    display: flex;
+    max-height: 500px;
     opacity: 1;
     
     
+    
   }
+
+
 
 
 

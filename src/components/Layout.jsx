@@ -31,25 +31,25 @@ export default function Layout (props) {
                     <img className="isuThina-logo" src="../IsuThina_logo.png" alt="isuThina logo"></img>
                     <p className="subheading"> Zim to the world and back 🌎</p>      
                 </div>
-                <a href='#' className='toggle-button' onClick={handleSmallScreenMenu}>
+                <a href='#' className={'hamburger-menu-button'+ (showSmallScreenNavOptions ? " clicked" : " ")} onClick={handleSmallScreenMenu}>
                     <span className="bar"></span>
                     <span className="bar"></span>
                     <span className="bar"></span>
                 </a>
                 {(<div className={'navbar-links'+ (showSmallScreenNavOptions ? " active" : " ")}>
                     <ul>
-                        <li><a href='#'>Home</a></li>
-                        <li><a href='#'>About</a></li>
-                        <li><a href='#'>Business Community 🤝🏾 📈</a></li>
+                        <li><a href='#'>Home 🏠 </a></li>
+                        <li><a href='#'>About ℹ️</a></li>
+                        <li><a href='#'>Business Community 🤝🏾🔍</a></li>
                         <li><a href='#'>Blogs and Podcasts 🎙️📝 </a></li>
-                        <li><a href='#'>Language Learning 💬 📘 🗣️</a></li>
+                        <li><a href='#'>Language Learning 💬 📘 </a></li>
                         {globalUser ? (
                     
-                        <li onClick={logout}><a href="#">Logout</a></li>):(
+                        <li onClick={logout}><a href="#">Logout 👋</a></li>):(
 
                     
                     
-                        <li onClick={()=>{setShowModal(true)}}><a href="#" >Sign Up / Sign In</a></li>)}
+                        <li onClick={()=>{setShowModal(true)}}><a href="#" >Sign Up / Sign In 👤</a></li>)}
                         </ul>
                     
 

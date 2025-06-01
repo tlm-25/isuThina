@@ -596,6 +596,9 @@ details[open] summary {
     color: var(--color-primary);
     padding: 1rem;
     border-radius: 0.5rem;
+    
+    
+    text-align: center;
 }
 
 .card {
@@ -614,6 +617,7 @@ details[open] summary {
     transform: translate(0);
     box-shadow: none;
     border-color: var(--border-highlight);
+    scale:1.05;
 }
 
 .card-button-primary,

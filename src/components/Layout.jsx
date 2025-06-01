@@ -8,47 +8,64 @@ export default function Layout (props) {
     //children constant which refers to the propls - props referenced with curly brackets 
     const {children} = props
     const [showModal, setShowModal] = useState(false)
+    //when the screen is small, managing state of displaying options
+    const [showSmallScreenNavOptions, setShowSmallScreenNavOptions] = useState(false)
     function handleCloseModal() {
-        setShowModal(false)
+        setShowModal(true)
+    }
+
+    //
+
+    function handleSmallScreenMenu(){
+        //toggle showSmallScreenNavOptions - i.e. display or hide the menu depending on current state
+        setShowSmallScreenNavOptions(!showSmallScreenNavOptions)
+
     }
 
     const {globalUser,logout} = useAuth()
 
     const header = (
         
-        <nav >
-            <div>
-                <img className="isuThina-logo" src="../IsuThina_logo.png" alt="isuThina logo"></img>
-                <p className="subheading"> Zim to the world and back 🌎</p>
-                
-                
-            </div>
-            
-            {globalUser ? (
-                
-                <button onClick={logout}>
-                    <p>Logout</p>
-
-                </button>) :
-            
-                <button onClick={()=>{setShowModal(true)}}>
-                    <p>Sign up / Login</p>
+        <nav className='navbar'>
+                <div className='logo-section'>  
+                    <img className="isuThina-logo" src="../IsuThina_logo.png" alt="isuThina logo"></img>
+                    <p className="subheading"> Zim to the world and back 🌎</p>      
+                </div>
+                <a href='#' className='toggle-button' onClick={handleSmallScreenMenu}>
+                    <span className="bar"></span>
+                    <span className="bar"></span>
+                    <span className="bar"></span>
+                </a>
+                {(<div className={'navbar-links'+ (showSmallScreenNavOptions ? " active" : " ")}>
+                    <ul>
+                        <li><a href='#'>Home</a></li>
+                        <li><a href='#'>About</a></li>
+                        <li><a href='#'>Business Community 🤝🏾 📈</a></li>
+                        <li><a href='#'>Blogs and Podcasts 🎙️📝 </a></li>
+                        <li><a href='#'>Language Learning 💬 📘 🗣️</a></li>
+                        {globalUser ? (
                     
-                </button> }
+                        <li onClick={logout}><a href="#">Logout</a></li>):(
+
+                    
+                    
+                        <li onClick={()=>{setShowModal(true)}}><a href="#" >Sign Up / Sign In</a></li>)}
+                        </ul>
+                    
+
+                </div>)}
+
+
+                
         
         </nav>
     )
 
-    const subHeader = (
-        <div className="mission-statement">
-                <p className="subheading"> Connecting Zimbabweans worldwide through culture, community and commerce</p>
-            </div>
-    )
 
 
     const footer = (
         <footer>
-            <p><span className="text-gradient">IsuThina Ltd</span> was made by <a target="_blank" href="https://www.smoljames.com">Arnold Gorah and Takudzwa Mutsago</a> <br />using the <a href="https://www.fantacss.smoljames.com" target="_blank">FantaCSS</a> design library.<br />Check out the project on <a target="_black" href="https://www.github.com/jamezmca/reactjs-full-course">GitHub</a>!</p>
+            <p><span className="text-gradient">IsuThina Ltd Arnold Gorah and Takudzwa Mutsago FantaCSS design library.</span></p>
 
         </footer>
     )
@@ -58,8 +75,9 @@ export default function Layout (props) {
             <Authentication handleCloseModal ={handleCloseModal}/>
         </Modal>)}
         {header}
+
         
-        {subHeader}
+
         <main>
             {children}
         </main>

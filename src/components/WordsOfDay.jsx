@@ -2,24 +2,26 @@
 import { wordDictionary,languages } from "../utils"
 import { useState } from 'react'
 import Modal from "./Modal"
+
+import WordPopUp from "./WordPopUp.jsx"
 import Authentication from "./Authentication"
 import { doc, setDoc } from "firebase/firestore"
 import { useAuth } from "../context/AuthContext"
 import { db } from "../../firebase"
+
+
 export default function WordsOfDay (props) {
     const {isAuthenticated} = props
     const [showModal, setShowModal] = useState(false)
-    
-    //manage state of selected coffee when user clicks the coffee
-    const [wordsOfDayLanguage,setWordsOfDayLanguage] = useState("ChiShona")
-    //Managing state for showing coffee types - false by default - for when user clicks 'other button'
-    const [showCoffeeTypes,setshowCoffeeTypes] = useState(false)
-    //Manging state of cost depending on what user inputs 
-    const [coffeeCost,setCoffeeCost] = useState(0)
 
-    //managing state of hours and minutes depending on what the use selects in  the coffee form
-    const [hour,setHour] = useState(0)
-    const [minute,setMinute] = useState(0)
+
+    const [selectedWordOfDay, setSelectedWordOfDay] = useState(null)
+    
+    //manage state of selected language for words of the day 
+    const [wordsOfDayLanguage,setWordsOfDayLanguage] = useState("ChiShona")
+
+
+  
 
     const {globalData, setGlobalData, globalUser} = useAuth()
 
@@ -95,6 +97,7 @@ export default function WordsOfDay (props) {
         return results
     }
 
+
     return (
         <>
             {showModal && (
@@ -152,25 +155,14 @@ export default function WordsOfDay (props) {
 
             }
             
-            
-            
-            
+                     
             <div className="word-grid">
-
-                {/*get the state value of the selected languages */}
-
-
-                {/*select language from languages list depending on selected language */}
-
-                
 
                 {checkWordLanguage(wordDictionary,wordsOfDayLanguage).slice(0,6).map((word,wordIndex) => {
                     return (
-                        <button className={"button-card" + (word["Language"] === wordsOfDayLanguage ? 'coffee-button-selected' : ' ')} key={wordIndex} onClick={()=>{
-                            
-                            //if button clicked,  set coffee selection to 
-                            setWordsOfDayLanguage(word[wordsOfDayLanguage])
-                            setshowCoffeeTypes(false)
+                        <button className={"button-card" + (selectedWordOfDay == word[wordsOfDayLanguage] ? "word-of-day-button-selected" : " ")} key={wordIndex} onClick={()=>{
+                            console.log(selectedWordOfDay)
+                            setSelectedWordOfDay(word[wordsOfDayLanguage])                      
                         }}>
                             <h4>{word[wordsOfDayLanguage]}</h4>
                             <p>{word["English"]}</p>

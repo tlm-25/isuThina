@@ -10,26 +10,138 @@
 
 }
 
-nav {
+.navbar {
   display: flex;
   align-items: center;
   gap: 1rem;
   justify-content: space-between;
   background-color: #000000;
   padding: 1rem;
+  border-bottom: 4px solid rgb(182, 182, 182);
+  color:white;
 
 
 }
 
-.isu-heading {
-  color: rgb(255, 65, 65);
-  display: inline;
+
+.navbar-links ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+
 }
 
-.thina-heading {
-  color: #32f86d;
-  display: inline;
+
+.navbar-links li {
+  list-style-type:none;
+  
+
 }
+
+.navbar-links li a{
+
+  text-decoration: none;
+  color:#fff;
+  padding: 1rem;
+  display:block
+  
+
+}
+
+.navbar-links li:hover{
+  background-color: white;
+  transition: 0.2s;
+  color:black;
+  border-radius: 3px;
+  scale: 1.2;
+
+}
+
+.navbar-links li a:hover{
+
+  transition: 0.2s;
+  color:black;
+
+}
+
+.toggle-button {
+  position: absolute;
+  top: .75rem;
+  right:1rem;
+  display:none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 30px;
+  gap:0.5rem
+
+}
+
+.toggle-button .bar{
+  height: 3px;
+  width:100%;
+  background-color: white;
+  border-radius: 10px;
+  
+
+}
+
+@media(max-width:900px){
+  .toggle-button {
+    display: flex;
+  }
+
+  .navbar-links{
+    display: none;
+    opacity: 0;
+    transition: opacity 2s ease;
+    width: 100%;
+    border-top: 10px solid #fff;
+
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    border-bottom: 1px solid #fff;
+  }
+
+  .navbar-links ul {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .navbar-links li {
+    text-align: center;
+  }
+
+  .move-navbar-links-down {
+    animation-name: move;
+    animation-duration:10s;
+    animation-iteration-count:1;
+    animation-fill-mode: forwards;
+
+  }
+
+
+
+  .navbar-links.active {
+    display: flex;
+    opacity: 1;
+    
+    
+  }
+
+
+
+    
+
+}
+
+
+
+
+
 
 .subheading {
   color: #f3f3f3;
@@ -37,19 +149,22 @@ nav {
 
 
 
-nav button {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  background-color: #f3f3f3;
-  border-radius: 3;
+
+
+
+
+.logo-section{
+  min-width: 200px;
+  max-width: 200px;
 }
+
 
 
 .mission-statement {
   background-color: #333;
   text-align: center;
   color: white;
+  border-bottom: 4px solid rgb(182, 182, 182);
 
 }
 
@@ -80,6 +195,10 @@ h2 {
   flex-direction: column;
   gap: 0.5rem;
   text-align: center;
+  align-items: center;
+  color:#f3f3f3;
+  background-color: rgb(32, 32, 32);
+  
 
 }
 
@@ -176,9 +295,23 @@ h2 {
 }
 
 .isuThina-logo {
-  height: 10rem;
-  width: 10rem;
+  height: 200px;
+  width: 200px;
 }
+
+.welcome-div {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 1rem;
+  
+}
+
+.zim-flag {
+  height: 100px;
+}
+
+
 
 .section-header i {
   padding-top: 1.5rem;
@@ -189,6 +322,7 @@ h2 {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
+  padding: 1rem;
 }
 
 .word-grid button {
@@ -199,7 +333,31 @@ h2 {
   width: 100%;
 }
 
-.coffee-button-selected {
+
+.intro-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin:1rem;
+
+
+
+  }
+
+
+.intro-card-grid button{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+
+
+
+  }
+
+.word-of-day-button-selected {
   border-color: var(--border-highlight) !important;
 }
 
@@ -311,7 +469,15 @@ footer {
   }
 
   .word-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(3, 1fr));
+
+  }
+
+  .intro-card-grid {
+    grid-template-columns: repeat(3, minmax(3, 1fr));
+
+
+
   }
 
   .caffeine-level-text {

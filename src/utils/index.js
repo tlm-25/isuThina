@@ -46,7 +46,16 @@ export const wordDictionary = [
   { "IsiNdebele": "Gwaza", "English": "Stab", "Language": "IsiNdebele" },
   { "IsiNdebele": "Inja", "English": "Dog", "Language": "IsiNdebele" },
 
-  { "IsiXhosa": "Theta", "English": "Speak", "Language": "IsiXhosa" }
+  { "IsiXhosa": "Theta", "English": "Speak", "Language": "IsiXhosa" },
+  { "IsiXhosa": "Igugu", "English": "Pride", "Language": "IsiXhosa" },
+  { "IsiXhosa": "Guqa", "English": "Kneel", "Language": "IsiXhosa" },
+  { "IsiXhosa": "Imali", "English": "Money", "Language": "IsiXhosa" },
+  { "IsiXhosa": "Phazamisa", "English": "Disturb", "Language": "IsiXhosa" },
+  { "IsiXhosa": "Hlamba", "English": "Wash", "Language": "IsiXhosa" },
+  { "IsiXhosa": "Cabanga", "English": "Think", "Language": "IsiXhosa" },
+  { "IsiXhosa": "Indlu", "English": "House", "Language": "IsiXhosa" },
+  { "IsiXhosa": "Sebenza", "English": "Work", "Language": "IsiXhosa" },
+  
   
 ]
 
@@ -80,7 +89,7 @@ export function calculateCurrentCaffeineLevel(historyData) {
 
 // Helper function to get caffeine amount based on the coffee name
 export function getCaffeineAmount(coffeeName) {
-    const coffee = ShonaWords.find(c => c.name === coffeeName)
+    const coffee = wordDictionary.find(c => c.name === coffeeName)
     return coffee ? coffee.caffeine : 0
 }
 

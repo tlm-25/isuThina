@@ -2,12 +2,15 @@ import {useState} from 'react'
 import Authentication from "./Authentication"
 import Modal from "./Modal"
 import { useAuth } from '../context/AuthContext'
+import WordPopUp from './WordPopUp'
+
 export default function Layout (props) {
     //children refers to everything inside the opening and closing tags of layout in app.jsx
     //children components rendered in between curly brackets 
     //children constant which refers to the propls - props referenced with curly brackets 
     const {children} = props
     const [showModal, setShowModal] = useState(false)
+
     //when the screen is small, managing state of displaying options
     const [showSmallScreenNavOptions, setShowSmallScreenNavOptions] = useState(false)
     
@@ -77,6 +80,8 @@ export default function Layout (props) {
         {(<Modal showModal={showModal} handleCloseModal={handleCloseModal}>
             <Authentication  handleCloseModal ={handleCloseModal}/>
         </Modal>)}
+       
+       
         {header}
 
         

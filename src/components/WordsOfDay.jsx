@@ -13,12 +13,20 @@ import { db } from "../../firebase"
 export default function WordsOfDay (props) {
     const {isAuthenticated} = props
     const [showModal, setShowModal] = useState(false)
+    const [showWordCardModal,setShowWordCardModal] = useState(false)
 
 
     const [selectedWordOfDay, setSelectedWordOfDay] = useState(null)
     
     //manage state of selected language for words of the day 
-    const [wordsOfDayLanguage,setWordsOfDayLanguage] = useState("ChiShona")
+    const [targetLanguage,setTargetLanguage] = useState("ChiShona")
+
+    // manage state of english word
+    const [selectedEnglishWord, setSelectedEnglishWord] = useState(null)
+
+
+    const [selectedTargetSentence, setSelectedTargetSentence] = useState(null);
+    const [selectedEnglishSentence, setSelectedEnglishSentence] = useState(null);
 
 
   
@@ -33,7 +41,7 @@ export default function WordsOfDay (props) {
 
         //define a guard clause that only submits form if completed
         //selected coffee cannot be empty
-        if(!wordsOfDayLanguage){
+        if(!targetLanguage){
             return
 
         }
@@ -54,13 +62,13 @@ export default function WordsOfDay (props) {
             const timeToSubtract = (hour * 60 * 60 * 1000) + (minute * 60 * 1000)
             
             const newData = {
-                name: wordsOfDayLanguage,
+                name: targetLanguage,
                 cost: coffeeCost
 
             }
             //timestamp when 
             const timestamp = nowTime - timeToSubtract
-            console.log(timestamp, wordsOfDayLanguage, coffeeCost)
+            console.log(timestamp, targetLanguage, coffeeCost)
             newGlobalData[timestamp] = newData
             //update the global state 
             setGlobalData(newGlobalData)
@@ -69,7 +77,7 @@ export default function WordsOfDay (props) {
             const userRef = doc(db,'users',globalUser.uid)
             const res = await setDoc(userRef, {
                 [timestamp]: {
-                    name: wordsOfDayLanguage,
+                    name: targetLanguage,
                     cost: coffeeCost
                 }
 
@@ -90,6 +98,7 @@ export default function WordsOfDay (props) {
     }
     function handleCloseModal() {
         setShowModal(false)
+        setShowWordCardModal(false)
     }
 
     function checkWordLanguage (dictionary,lang) {
@@ -100,12 +109,10 @@ export default function WordsOfDay (props) {
 
     return (
         <>
-            {showModal && (
-                <Modal handleCloseModal={handleCloseModal}>
-                        <Authentication handleCloseModal ={function handleCloseModal() {
-        setShowModal(false)
-    }}/>
-                </Modal>)}
+         {(<Modal showModal={showWordCardModal} handleCloseModal={handleCloseModal}>
+            <WordPopUp handleCloseModal ={handleCloseModal} selectedTargetWord={selectedWordOfDay} selectedEnglishWord = {selectedEnglishWord} selectedTargetSentence={selectedTargetSentence} selectedEnglishSentence={selectedEnglishSentence} />
+        </Modal>)}
+            
 
             <div className="section-header">
                 <i className="fa-solid fa-pencil" />
@@ -133,7 +140,7 @@ export default function WordsOfDay (props) {
                     
                     <select onChange={(e)=>{
                         //set state value to whichever option was selected
-                        setWordsOfDayLanguage(e.target.value)
+                        setTargetLanguage(e.target.value)
                         
 
                     }}id="words-of-day-list" name="words-of-day-list">
@@ -160,14 +167,17 @@ export default function WordsOfDay (props) {
                      
             <div className="word-grid">
 
-                {checkWordLanguage(wordDictionary,wordsOfDayLanguage).slice(0,6).map((word,wordIndex) => {
+                {checkWordLanguage(wordDictionary,targetLanguage).slice(0,6).map((word,wordIndex) => {
                     return (
-                        <button className={"button-card" + (selectedWordOfDay == word[wordsOfDayLanguage] ? "word-of-day-button-selected" : " ")} key={wordIndex} onClick={()=>{
-                            console.log(selectedWordOfDay)
-                            setSelectedWordOfDay(word[wordsOfDayLanguage])                      
+                        <button className="button-card" key={wordIndex} onClick={()=>{
+                            setShowWordCardModal(true)  
+                            setSelectedWordOfDay(word[targetLanguage]) 
+                            setSelectedEnglishWord(word["English"])    
+                            setSelectedTargetSentence(word["TargetSentence"]) 
+                            setSelectedEnglishSentence(word["EnglishSentence"])                 
                         }}>
-                            <h4>{word[wordsOfDayLanguage]}</h4>
-                            <p>{word["English"]}</p>
+                            <h4>{word[targetLanguage]}</h4>
+                            
 
                         </button>
                     )

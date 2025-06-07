@@ -56,7 +56,7 @@ export default function Authentication (props) {
     return (
         <>
         
-            <div className='top-of-popup'> <h2 className="sign-up-text">{ isRegistration ? 'Sign up' : 'Login'} </h2><h3><button onClick={handleCloseModal}>&times;</button></h3></div>
+            <div className='top-of-popup'> <h2 className="popup-title-text">{ isRegistration ? 'Sign up' : 'Login'} </h2><h3><button onClick={handleCloseModal}>&times;</button></h3></div>
                 <p>{ isRegistration ? 'Create your account' : 'Sign into your account'}</p>
                 {error && (<p>❌ {(error.includes("invalid-credential") ? "Incorrect username or password. Try again":"failed to login")}</p>)}
                 <input value={email} onChange={(e)=>{setEmail(e.target.value)}} placeholder="Email" />

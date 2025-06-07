@@ -19,6 +19,20 @@ export const statusLevels = {
     },
 }
 
+export const promotionsCarouselImages = [
+    {imageFile: "../images/matopos.jpg",
+    imageTitle: "Matopos"
+    },
+
+    {imageFile: "../images/pads_zim.jpg",
+    imageTitle: "Woken"
+    },
+
+    {imageFile: "../images/twt.jpg",
+    imageTitle: "Train with Taku"
+    }
+]
+
 
 export const wordDictionary = [
   { "ChiShona": "Taura", "English": "Speak", "Language": "ChiShona" },

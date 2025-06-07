@@ -129,27 +129,29 @@ export default function WordsOfDay (props) {
             
             
             
-                {
-                //only show coffee selection if 'other' option selected
-                (
-                
-                <select onChange={(e)=>{
-                    //set state value to whichever option was selected
-                    setWordsOfDayLanguage(e.target.value)
+                {   (<div className="selection-container">
                     
+                    <select onChange={(e)=>{
+                        //set state value to whichever option was selected
+                        setWordsOfDayLanguage(e.target.value)
+                        
 
-                }}id="words-of-day-list" name="words-of-day-list">
-                    
-                    {languages.map((language,languageIndex)=>{
-                        return (
+                    }}id="words-of-day-list" name="words-of-day-list">
+                        
+                        {languages.map((language,languageIndex)=>{
+                            return (
 
-                            <option value={language} key={languageIndex}>
-                                {language}
-                            </option>
-                        )
+                                <option value={language} key={languageIndex}>
+                                    {language}
+                                </option>
+                            )
 
-                    })}
-                </select>)
+                        })}
+                    </select>
+
+                </div>)
+                   
+
 
                              
 

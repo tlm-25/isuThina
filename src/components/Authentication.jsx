@@ -1,7 +1,10 @@
 import {useState} from 'react'
 import { useAuth } from '../context/AuthContext'
+
+
+
 export default function Authentication (props) {
-    const {handleCloseModal} = props
+    const {handleCloseModal,className} = props
     const [isRegistration,setIsRegistration] = useState(false)
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
@@ -52,20 +55,19 @@ export default function Authentication (props) {
     }
     return (
         <>
-        <h2 className="sign-up-text">{ isRegistration ? 'Sign up' : 'Login'}</h2>
-        <p>{ isRegistration ? 'Create your account' : 'Sign into your account'}</p>
-        {error && (<p>❌ {error}</p>)}
-        <input value={email} onChange={(e)=>{setEmail(e.target.value)}} placeholder="Email" />
-        <input value={password} onChange={(e)=>{setPassword(e.target.value)}} placeholder="******" type="password" />
-        <button onClick={handleAuthenticate}><p>{ isAuthenticating ? 'Authenticating...': isRegistration ? 'Sign up' : 'Login'}</p></button>
-        <hr />
-        <div className="register-content">
-            <p>{ isRegistration ? 'Already have an account?' : 'Don\'t have an account?' }</p>
-            <button onClick={()=> {setIsRegistration(!isRegistration)}}><p>{ isRegistration ? 'Login' : 'Sign up'}</p></button>
+        
+            <div className='top-of-popup'> <h2 className="sign-up-text">{ isRegistration ? 'Sign up' : 'Login'} </h2><h3><button onClick={handleCloseModal}>&times;</button></h3></div>
+                <p>{ isRegistration ? 'Create your account' : 'Sign into your account'}</p>
+                {error && (<p>❌ {(error.includes("invalid-credential") ? "Incorrect username or password. Try again":"failed to login")}</p>)}
+                <input value={email} onChange={(e)=>{setEmail(e.target.value)}} placeholder="Email" />
+                <input value={password} onChange={(e)=>{setPassword(e.target.value)}} placeholder="******" type="password" />
+                <button onClick={handleAuthenticate}><p>{ isAuthenticating ? 'Authenticating...': isRegistration ? 'Sign up' : 'Login'}</p></button>
+                <hr />
+            <div className="register-content">
+                <p>{ isRegistration ? 'Already have an account?' : 'Don\'t have an account?' }</p>
+                <button onClick={()=> {setIsRegistration(!isRegistration)}}><p>{ isRegistration ? 'Login' : 'Sign up'}</p></button>
 
-
-
-        </div>
+            </div>       
         </>
     )
 }

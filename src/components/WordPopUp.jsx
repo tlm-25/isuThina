@@ -2,7 +2,7 @@ import ReactDom from 'react-dom'
 import { wordDictionary,languages } from "../utils"
 
 export default function WordPopUp (props) {
-    const {children,selehandleClosePopUp} = props
+    const {children,handleCloseModal} = props
     return (
         <>
         <h2 className="sign-up-text">{ isRegistration ? 'Sign up' : 'Login'}</h2>

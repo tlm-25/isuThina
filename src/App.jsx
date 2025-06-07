@@ -6,6 +6,7 @@ import WordsOfDay from './components/wordsOfDay.jsx'
 import Hero from './components/Hero.jsx'
 import Stats from './components/Stats.jsx'
 import History from './components/History.jsx'
+import  {promotionsCarouselImages} from './utils/index.js'
 import { useAuth } from './context/AuthContext.jsx'
 function App() {
   //check if user authenticated 

@@ -10,12 +10,14 @@ export default function Layout (props) {
     const [showModal, setShowModal] = useState(false)
     //when the screen is small, managing state of displaying options
     const [showSmallScreenNavOptions, setShowSmallScreenNavOptions] = useState(false)
+    
     function handleCloseModal() {
-        setShowModal(true)
+        setShowModal(false)
     }
 
     //
 
+    
     function handleSmallScreenMenu(){
         //toggle showSmallScreenNavOptions - i.e. display or hide the menu depending on current state
         setShowSmallScreenNavOptions(!showSmallScreenNavOptions)
@@ -28,7 +30,7 @@ export default function Layout (props) {
         
         <nav className='navbar'>
                 <div className='logo-section'>  
-                    <img className="isuThina-logo" src="../IsuThina_logo.png" alt="isuThina logo"></img>
+                    <img className="isuThina-logo" src="../images/IsuThina_logo.png" alt="isuThina logo"></img>
                     <p className="subheading"> Zim to the world and back 🌎</p>      
                 </div>
                 <a href='#' className={'hamburger-menu-button'+ (showSmallScreenNavOptions ? " clicked" : " ")} onClick={handleSmallScreenMenu}>
@@ -64,6 +66,7 @@ export default function Layout (props) {
 
 
     const footer = (
+
         <footer>
             <p><span className="text-gradient">IsuThina Ltd Arnold Gorah and Takudzwa Mutsago FantaCSS design library.</span></p>
 
@@ -71,8 +74,8 @@ export default function Layout (props) {
     )
     return (
         <>
-        {showModal && (<Modal handleCloseModal={handleCloseModal}>
-            <Authentication handleCloseModal ={handleCloseModal}/>
+        {(<Modal showModal={showModal} handleCloseModal={handleCloseModal}>
+            <Authentication  handleCloseModal ={handleCloseModal}/>
         </Modal>)}
         {header}
 

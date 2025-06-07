@@ -1,9 +1,12 @@
+
+import PromotionsCarousel from "./PromotionsCarousel"
+import { promotionsCarouselImages } from "../utils"
 export default function Hero () {
     return (
         <>
         <div className="welcome-div">
             <h1>Siyalamukela! | Mauya! | Welcome! </h1>
-            <img className="zim-flag" src="./zim-flag.png"/>
+            <img className="zim-flag" src="../images/zim-flag.png"/>
             <p><strong>Connecting Zimbabweans globally through culture, community and commerce</strong></p>
         </div>
         
@@ -38,9 +41,8 @@ export default function Hero () {
                 <h4>Contact us 📞🌐  </h4>
                 <p>Get eyes on your business, support zim-owned ventures build your team for your projects back home</p>
             </button>
-
         </div>
-        
+
         </>
     )
 }

@@ -8,6 +8,7 @@ import Stats from './components/Stats.jsx'
 import History from './components/History.jsx'
 import  {promotionsCarouselImages} from './utils/index.js'
 import { useAuth } from './context/AuthContext.jsx'
+import PromotionsCarousel from './components/PromotionsCarousel.jsx'
 function App() {
   //check if user authenticated 
   const {globalUser, isLoading, globalData } = useAuth()
@@ -34,6 +35,8 @@ function App() {
 
     <Layout>
       <Hero />
+      
+      <PromotionsCarousel slides={promotionsCarouselImages}/>
       <WordsOfDay isAuthenticated={isAuthenticated}/>
       {(isLoading && isAuthenticated)&&(
 

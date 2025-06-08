@@ -1,32 +1,70 @@
+import { useEffect, useState } from "react";
+
 function PromotionsCarousel(props) {
-    const {images} = props
-    return <div className="carousel">
-            <div className="carousel-wrapper">
-                {images.map((image,index)=>{
+    const {slides} = props
 
-                    return(
-                        <div key={index} className={"carousel-card" + (index == 2 ? " carousel-card-active" : " ")}>
-                            <img src={image.imageFile} className="card-image" alt=""/>
-                            <div className="card-overlay">
-                                <h2 className="card-title">
-                                    {image.imageTitle}
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [autoPlay, setAutoPlay] = useState(null);
+    //automatically move to next slide every 5 seconds
+    // useEffect(()=>{
+    //     const interval = setInterval(()=>{
+    //         setCurrentIndex(prevIndex=> prevIndex === slides.length - 1 ? 0 : prevIndex + 1)
+    //     },5000);
 
-                                </h2>
-                            </div>
-                            
-                            
-                        </div>
+    //     //cleanup interval
+    //     return () => clearInterval(interval)
+        
+    // }, [slides.length])
+    
+
+    function getPreviousImage(){
+        //check if it is the first slide
+        const isFirstImage = currentIndex === 0;
+        //if first image and click the "back£ arrow, go back to last image otherwise just get previous image
+        const newIndex = isFirstImage ? slides.length - 1 : currentIndex -1;
+        setCurrentIndex(newIndex)
+        
+    }
+
+    function getNextImage(){
+        //check if it is the first slide
+        const isLastImage = currentIndex === slides.length - 1;
+        //if last image and click the "next£ arrow, go back to first image otherwise just get previous image
+        const newIndex = isLastImage ? 0: currentIndex + 1;
+        setCurrentIndex(newIndex)
+        console.log(newIndex)
+        
+    }
+
+    function goToSlide(slideIndex){
+        setCurrentIndex(slideIndex)
+
+    }
 
 
-                    ) 
 
+    return (
+        <div className="promotions-carousel-container">
+            
+            <div className="slider-styles">
+                <div className="left-arrow" onClick={getPreviousImage}> &lt;</div>
+                <div className="right-arrow" onClick={getNextImage}> &gt;</div>
+                
+                <div className="slide-styles" style={{ '--bg-url': `url(${slides[currentIndex].imageFile})` }}> </div>
+                <div className="dots-container">
+                    {slides.map((slide,slideIndex)=>(
+                        <div key={slideIndex} className="dot-styles" onClick={()=>{goToSlide(slideIndex)}}>{currentIndex === slideIndex ?  '⚫'  :'⚪'}</div>
+                    ))}
 
-                })}
-                        
+                </div>
+            
             </div>
+            
+        </div>
 
 
-    </div>
+    
+    )
 
 }
 

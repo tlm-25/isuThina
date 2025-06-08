@@ -9,8 +9,9 @@ export default function WordPopUp (props) {
         <h3><i>Translation: {selectedEnglishWord}</i></h3>
         <hr />
         <div className="register-content">
+            
             <h4>{selectedTargetSentence}</h4>
-            <p>{selectedEnglishSentence}</p>
+            <p> <i>Translation: {selectedEnglishSentence}</i></p>
         </div>
         </>
     )

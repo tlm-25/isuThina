@@ -4,17 +4,17 @@ function PromotionsCarousel(props) {
     const {slides} = props
 
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [autoPlay, setAutoPlay] = useState(null);
+    const [autoPlay, setAutoPlay] = useState(true);
+    let timeOut = null
     //automatically move to next slide every 5 seconds
-    // useEffect(()=>{
-    //     const interval = setInterval(()=>{
-    //         setCurrentIndex(prevIndex=> prevIndex === slides.length - 1 ? 0 : prevIndex + 1)
-    //     },5000);
+    useEffect(()=>{
+        timeOut = autoPlay && setTimeout(()=>{
+            getNextImage();
 
-    //     //cleanup interval
-    //     return () => clearInterval(interval)
+        },3500)
         
-    // }, [slides.length])
+        
+    })
     
 
     function getPreviousImage(){
@@ -23,6 +23,7 @@ function PromotionsCarousel(props) {
         //if first image and click the "back£ arrow, go back to last image otherwise just get previous image
         const newIndex = isFirstImage ? slides.length - 1 : currentIndex -1;
         setCurrentIndex(newIndex)
+        clearTimeout(timeOut)
         
     }
 
@@ -32,7 +33,7 @@ function PromotionsCarousel(props) {
         //if last image and click the "next£ arrow, go back to first image otherwise just get previous image
         const newIndex = isLastImage ? 0: currentIndex + 1;
         setCurrentIndex(newIndex)
-        console.log(newIndex)
+        clearTimeout(timeout)
         
     }
 

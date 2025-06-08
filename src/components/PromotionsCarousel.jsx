@@ -33,12 +33,13 @@ function PromotionsCarousel(props) {
         //if last image and click the "next£ arrow, go back to first image otherwise just get previous image
         const newIndex = isLastImage ? 0: currentIndex + 1;
         setCurrentIndex(newIndex)
-        clearTimeout(timeout)
+        clearTimeout(timeOut)
         
     }
 
     function goToSlide(slideIndex){
         setCurrentIndex(slideIndex)
+        clearTimeout(timeOut)
 
     }
 

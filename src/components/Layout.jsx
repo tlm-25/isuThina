@@ -3,7 +3,8 @@ import Authentication from "./Authentication"
 import Modal from "./Modal"
 import { useAuth } from '../context/AuthContext'
 import WordPopUp from './WordPopUp'
-
+import Navigation from './Navigation'
+import { Link } from 'react-router-dom'
 export default function Layout (props) {
     //children refers to everything inside the opening and closing tags of layout in app.jsx
     //children components rendered in between curly brackets 
@@ -30,40 +31,42 @@ export default function Layout (props) {
     const {globalUser,logout} = useAuth()
 
     const header = (
+        <Navigation />
         
-        <nav className='navbar'>
-                <div className='logo-section'>  
-                    <img className="isuThina-logo" src="../images/IsuThina_logo.png" alt="isuThina logo"></img>
-                    <p className="subheading"> Zim to the world and back 🌎</p>      
-                </div>
-                <a href='#' className={'hamburger-menu-button'+ (showSmallScreenNavOptions ? " clicked" : " ")} onClick={handleSmallScreenMenu}>
-                    <span className="bar"></span>
-                    <span className="bar"></span>
-                    <span className="bar"></span>
-                </a>
-                {(<div className={'navbar-links'+ (showSmallScreenNavOptions ? " active" : " ")}>
-                    <ul>
-                        <li><a href='#'>Home 🏠 </a></li>
-                        <li><a href='#'>About ℹ️</a></li>
-                        <li><a href='#'>Business Community 🤝🏾🔍</a></li>
-                        <li><a href='#'>Blogs and Podcasts 🎙️📝 </a></li>
-                        <li><a href='#'>Language Learning 💬 📘 </a></li>
-                        {globalUser ? (
+        // <nav className='navbar'>
+        //         <div className='logo-section'>  
+        //             <img className="isuThina-logo" src="../images/IsuThina_logo.png" alt="isuThina logo"></img>
+        //             <p className="subheading"> Zim to the world and back 🌎</p>      
+        //         </div>
+        //         <a href='#' className={'hamburger-menu-button'+ (showSmallScreenNavOptions ? " clicked" : " ")} onClick={handleSmallScreenMenu}>
+        //             <span className="bar"></span>
+        //             <span className="bar"></span>
+        //             <span className="bar"></span>
+        //         </a>
+        //         {(<div className={'navbar-links'+ (showSmallScreenNavOptions ? " active" : " ")}>
+        //             <ul>
+        //                 <li><Link to="/" className="nav-link">Home</Link></li>
+        //                 <li><Link to="/about" className="nav-link">About ℹ</Link></li>
+        //                 <li><Link to="/events" className="nav-link">Events 🗓️</Link></li>
+        //                 <li><Link to="/business-community" className="nav-link">Business Community</Link></li>
+        //                 <li><Link to="/blogs-and-podcasts" className="nav-link">Blogs and Podcasts</Link></li>
+        //                 <li><Link to="/language-learning" className="nav-link">Language Learning</Link></li>
+        //                 {globalUser ? (
                     
-                        <li onClick={logout}><a href="#">Logout 👋</a></li>):(
+        //                 <li onClick={logout}><a href="#" className='nav=link'>Logout 👋</a></li>):(
 
                     
                     
-                        <li onClick={()=>{setShowModal(true)}}><a href="#" >Sign Up / Sign In 👤</a></li>)}
-                        </ul>
+        //                 <li onClick={()=>{setShowModal(true)}}><a href="#" className='nav-link'>Sign Up / Sign In 👤</a></li>)}
+        //                 </ul>
                     
 
-                </div>)}
+        //         </div>)}
 
 
                 
         
-        </nav>
+        // </nav>
     )
 
 

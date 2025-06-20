@@ -34,6 +34,12 @@ export const promotionsCarouselImages = [
 ]
 
 
+export const businesses = [
+    {"Name": "Train with Taku Fitness", "Logo":"../images/twt.jpg", "Mission Statemnt":"Breaking down your barriers to fitness", "Categories":["Health & Fitness","Personal Training","Nutrition Coaching"],"Website":"trainwithtaku.com","Instagram":"@trainwithtaku","Location(s)": ["UK","Online"],"Email":"trainwithtaku@gmail.com"},
+    {"Name": "Train with Taku Fitness", "Logo":"../images/twt.jpg", "Mission Statemnt":"Breaking down your barriers to fitness", "Categories":["Health & Fitness","Personal Training","Nutrition Coaching"],"Website":"trainwithtaku.com","Instagram":"@trainwithtaku","Location(s)": ["UK","Online"],"Email":"trainwithtaku@gmail.com"},
+]
+
+
 export const wordDictionary = [
   { "ChiShona": "Taura", "English": "Speak", "Language": "ChiShona", "TargetSentence": "Nhasi tichadzidzira kutaura ChiShona", "EnglishSentence": "Today we will practice speaking Shona" },
   { "ChiShona": "Tamba", "English": "Play/Dance", "Language": "ChiShona", "TargetSentence": " Nhasi ndatamba bhora na Tendai", "EnglishSentence": "Today I played football with Tendai" },

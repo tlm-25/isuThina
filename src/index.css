@@ -38,7 +38,7 @@
 
 }
 
-.navbar-links li a{
+.navbar-links li .nav-link{
 
   text-decoration: none;
   color:#fff;
@@ -48,19 +48,21 @@
 
 }
 
-.navbar-links li:hover{
+.navbar-links li :hover{
   background-color: white;
   transition: 0.2s;
   color:black;
   border-radius: 3px;
   scale: 1.2;
+  cursor: pointer;
 
 }
 
-.navbar-links li a:hover{
+.navbar-links li .nav-link:hover{
 
   transition: 0.2s;
   color:black;
+  cursor: pointer;
 
 }
 
@@ -137,7 +139,7 @@
     width: 100%;
     border-top: 4px solid #fff;
     transition: .3s ease;
-
+    visibility: hidden;
   }
 
   .navbar {
@@ -168,6 +170,7 @@
   .navbar-links.active {
     max-height: 500px;
     opacity: 1;
+    visibility: visible;
     
     
     
@@ -179,6 +182,18 @@
 
     
 
+}
+
+.search-filter {
+  display: flex;
+  background-color: rgb(22, 21, 21);
+  padding: 2rem;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  
 }
 
 
@@ -204,10 +219,11 @@
 
 
 .mission-statement {
-  background-color: #333;
+
   text-align: center;
-  color: white;
-  border-bottom: 4px solid rgb(182, 182, 182);
+  color: #000;
+  font-size: 1.2rem;
+  /* border-bottom: 1px solid rgb(182, 182, 182); */
 
 }
 
@@ -233,21 +249,7 @@ h2 {
 
 
 
-.benefits-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  text-align: center;
-  align-items: center;
-  color:#f3f3f3;
-  background-color: rgb(32, 32, 32);
-  
 
-}
-
-.benefits-list h3 {
-  padding-bottom: 0.5rem;
-}
 
 .info-card {
   font-size: 0.8rem;
@@ -316,7 +318,7 @@ h2 {
   border: none;
   width: 100%;
   box-shadow: unset;
-  background-image: rgb(12, 14, 12);
+  background-color: #181818;
 }
 
 .modal-underlay:hover {
@@ -336,7 +338,7 @@ h2 {
   min-height: 400px;
   border-radius: var(--border-radius-large);
   border: 1px solid var(--border-primary);
-  background: #000;
+  background: rgb(0,0,0,0.75);
   color:white;
   padding: 1rem;
   display: flex;
@@ -362,7 +364,9 @@ h2 {
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin: 1rem;
+  background-color: #f3f3f3;
+  color: #000;
+  padding: 1rem;
   
 }
 
@@ -468,6 +472,11 @@ h2 {
   padding: 1rem;
 }
 
+.word-of-day-container {
+  background-color: rgb(0, 0, 0);
+  color: white;
+}
+
 .word-grid button {
   display: flex;
   flex-direction: column;
@@ -481,7 +490,9 @@ h2 {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
-  margin:1rem;
+  padding: 1rem;
+  
+  background-color: #000;
 
 
 
@@ -623,10 +634,18 @@ footer {
 
 }
 
+
+.banner {
+  background-color: rgb(0, 0, 0);
+  display: flex;
+  justify-content: center;
+}
+
 .promotions-carousel-container {
   width: 500px;
   height: 280px;
   margin: 0 auto;
+  padding: 1rem;
 
 
 

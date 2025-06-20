@@ -46,23 +46,48 @@ function PromotionsCarousel(props) {
 
 
     return (
-        <div className="promotions-carousel-container">
-            
-            <div className="slider-styles">
-                <div className="left-arrow" onClick={getPreviousImage}> &lt;</div>
-                <div className="right-arrow" onClick={getNextImage}> &gt;</div>
-                
-                <div className="slide-styles" style={{ '--bg-url': `url(${slides[currentIndex].imageFile})` }}> </div>
-                <div className="dots-container">
-                    {slides.map((slide,slideIndex)=>(
-                        <div key={slideIndex} className="dot-styles" onClick={()=>{goToSlide(slideIndex)}}>{currentIndex === slideIndex ?  '⚫'  :'⚪'}</div>
-                    ))}
+        <div className="banner">
 
+            <div className="promotions-carousel-container">
+                        
+                <div className="slider-styles">
+                    <div className="left-arrow" onClick={getPreviousImage}> &lt;</div>
+                    <div className="right-arrow" onClick={getNextImage}> &gt;</div>
+                    
+                    <div className="slide-styles" style={{ '--bg-url': `url(${slides[currentIndex].imageFile})` }}> </div>
+                    <div className="dots-container">
+                        {slides.map((slide,slideIndex)=>(
+                            <div key={slideIndex} className="dot-styles" onClick={()=>{goToSlide(slideIndex)}}>{currentIndex === slideIndex ?  '⚫'  :'⚪'}</div>
+                        ))}
+
+                    </div>
+                        
                 </div>
+                        
+            </div>   
+
+            <div className="promotions-carousel-container">
+                        
+                <div className="slider-styles">
+                    <div className="left-arrow" onClick={getPreviousImage}> &lt;</div>
+                    <div className="right-arrow" onClick={getNextImage}> &gt;</div>
+                    
+                    <div className="slide-styles" style={{ '--bg-url': `url(${slides[currentIndex].imageFile})` }}> </div>
+                    <div className="dots-container">
+                        {slides.map((slide,slideIndex)=>(
+                            <div key={slideIndex} className="dot-styles" onClick={()=>{goToSlide(slideIndex)}}>{currentIndex === slideIndex ?  '⚫'  :'⚪'}</div>
+                        ))}
+
+                    </div>
+                        
+                </div>
+                        
+            </div> 
+
             
-            </div>
-            
+                  
         </div>
+        
 
 
     

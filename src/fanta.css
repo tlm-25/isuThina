@@ -592,10 +592,10 @@ details[open] summary {
 
 .card,
 .button-card {
-    background-color: var(--background-muted);
-    color: var(--color-primary);
+    background-color: #ffffff;
+    color: #000000;
     padding: 1rem;
-    border-radius: 0.5rem;
+    border-radius: 1px;
     
     
     text-align: center;
@@ -618,6 +618,8 @@ details[open] summary {
     box-shadow: none;
     border-color: var(--border-highlight);
     scale:1.05;
+    background-color: #5a0000;
+    color: #fff;
 }
 
 .card-button-primary,

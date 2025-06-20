@@ -1,53 +1,28 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import Layout from './components/Layout.jsx'
-import WordsOfDay from './components/wordsOfDay.jsx'
-import Hero from './components/Hero.jsx'
-import Stats from './components/Stats.jsx'
-import History from './components/History.jsx'
-import  {promotionsCarouselImages} from './utils/index.js'
-import { useAuth } from './context/AuthContext.jsx'
-import PromotionsCarousel from './components/PromotionsCarousel.jsx'
+import BusinessCommunity from "../pages/BusinessCommunity.jsx"
+import Home from "../pages/Home.jsx"
+import Events from "../pages/Events.jsx"
+import About from "../pages/About.jsx"
+import BlogsPodcasts from "../pages/BlogsPodcasts.jsx"
+
+import { Route, Routes } from "react-router-dom"
+import LanguageLearning from "../pages/LanguageLearning.jsx"
+
 function App() {
-  //check if user authenticated 
-  const {globalUser, isLoading, globalData } = useAuth()
 
-  //if there is a global user, we are authenticated and if no global userm not authenticated
-  const isAuthenticated = globalUser
-  //checking if data exists and there are entries (forcing Object.keys to global boolean)
-  const isData = globalData && !!Object.keys(globalData || {}).length 
   
-
-  //information specific to users that have signed up to page and logged in 
-  const authenticatedContent = (
-    <>
-    <Stats />
-    <History />
-    
-
-    </>
-
-
-  )
-    
   return (
+    <Routes>
+      <Route path="/" element={<Home />}/>
+      <Route path="/business-community" element={<BusinessCommunity />}/>
+      <Route path="/events" element={<Events />}/>
+      <Route path="/about" element={<About />}/>
+      <Route path="/blogs-podcasts" element={<BlogsPodcasts />}/>
+      <Route path="/languages" element={<LanguageLearning />}/>
+    </Routes>
 
-    <Layout>
-      <Hero />
-      
-      <PromotionsCarousel slides={promotionsCarouselImages}/>
-      <WordsOfDay isAuthenticated={isAuthenticated}/>
-      {(isLoading && isAuthenticated)&&(
 
-        <p>Loading data...</p>
-      ) }
-      {/*If user is authenticated and there is data, display the authenticated content (Stats and history component) */}
-      {(isAuthenticated && isData) && (authenticatedContent)}
-
-    </Layout>
-    
   )
+  
 }
 
 export default App

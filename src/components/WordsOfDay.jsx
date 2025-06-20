@@ -113,78 +113,78 @@ export default function WordsOfDay (props) {
             <WordPopUp handleCloseModal ={handleCloseModal} selectedTargetWord={selectedWordOfDay} selectedEnglishWord = {selectedEnglishWord} selectedTargetSentence={selectedTargetSentence} selectedEnglishSentence={selectedEnglishSentence} />
         </Modal>)}
             
+            <div className="word-of-day-container">
 
-            <div className="section-header">
-                <i className="fa-solid fa-pencil" />
-                <h2>
-                    Words of the day
-                </h2>
-            </div>
-            <div className="section-header">
-                <i className="fa-solid fa-pencil" />
-                <h4><i>Select the language for words of the day </i></h4> 
-            </div>
-             <div className="section-header">
-                <i className="fa-solid fa-pencil" />
-                <p><i>
-                    
-                    The words are randomly selected for each language hence they may be different in meaning.                    
-                    </i>  </p>
-            </div>
-            
-            
-            
-            
-            
-                {   (<div className="selection-container">
-                    
-                    <select onChange={(e)=>{
-                        //set state value to whichever option was selected
-                        setTargetLanguage(e.target.value)
+                <div className="section-header">
+                    <i className="fa-solid fa-pencil" />
+                    <h2>
+                        Words of the day
+                    </h2>
+                </div>
+                <div className="section-header">
+                    <i className="fa-solid fa-pencil" />
+                    <h4><i>Select a language for Words of the Day </i></h4> 
+                </div>
+                <div className="section-header">
+                    <i className="fa-solid fa-pencil" />
+                    <p><i>
                         
-
-                    }}id="words-of-day-list" name="words-of-day-list">
+                        The words are randomly chosen for each language, so their meanings will likely differ.                    
+                        </i>  </p>
+                </div>
+                
+                
+                
+                
+                
+                    {   (<div className="selection-container">
                         
-                        {languages.map((language,languageIndex)=>{
-                            return (
-
-                                <option value={language} key={languageIndex}>
-                                    {language}
-                                </option>
-                            )
-
-                        })}
-                    </select>
-
-                </div>)
-                   
-
-
-                             
-
-            }
-            
-                     
-            <div className="word-grid">
-
-                {checkWordLanguage(wordDictionary,targetLanguage).slice(0,6).map((word,wordIndex) => {
-                    return (
-                        <button className="button-card" key={wordIndex} onClick={()=>{
-                            setShowWordCardModal(true)  
-                            setSelectedWordOfDay(word[targetLanguage]) 
-                            setSelectedEnglishWord(word["English"])    
-                            setSelectedTargetSentence(word["TargetSentence"]) 
-                            setSelectedEnglishSentence(word["EnglishSentence"])                 
-                        }}>
-                            <h4>{word[targetLanguage]}</h4>
+                        <select onChange={(e)=>{
+                            //set state value to whichever option was selected
+                            setTargetLanguage(e.target.value)
                             
 
-                        </button>
-                    )
+                        }}id="words-of-day-list" name="words-of-day-list">
+                            
+                            {languages.map((language,languageIndex)=>{
+                                return (
+
+                                    <option value={language} key={languageIndex}>
+                                        {language}
+                                    </option>
+                                )
+
+                            })}
+                        </select>
+
+                    </div>)
+                    
 
 
-                })}
+                                
 
+                }
+                
+                        
+                <div className="word-grid">
+
+                    {checkWordLanguage(wordDictionary,targetLanguage).slice(0,6).map((word,wordIndex) => {
+                        return (
+                            <button className="button-card" key={wordIndex} onClick={()=>{
+                                setShowWordCardModal(true)  
+                                setSelectedWordOfDay(word[targetLanguage]) 
+                                setSelectedEnglishWord(word["English"])    
+                                setSelectedTargetSentence(word["TargetSentence"]) 
+                                setSelectedEnglishSentence(word["EnglishSentence"])                 
+                            }}>
+                                <h4>{word[targetLanguage]}</h4>
+                            </button>
+                        )
+
+
+                    })}
+
+                </div>
             </div>
 
 
